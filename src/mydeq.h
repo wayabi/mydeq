@@ -55,11 +55,6 @@ void mydeq<T>::push(const T* buf, int num)
 	idx_end_ = w1;
 	idx_start_ = idx_end_ + 1;
 	memcpy(&buf_[0], buf+w0, sizeof(T) * w1);
-
-	for(int i=0;i<size_;++i){
-		printf("# %d\n", buf_[i]);
-	}
-	printf("(%d, %d)\n", idx_start_, idx_end_);
 }
 
 template<class T>

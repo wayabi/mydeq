@@ -45,12 +45,21 @@ int main(){
 	while(true){
 		gets(buf);
 		auto ss = Util::split(string(buf), ',');
+		if(ss.size() < 2) continue;
 		vector<int> data;
-		for(auto ite = ss.begin();ite != ss.end();++ite){
-			int v = atoi(ite->c_str());
-			data.push_back(v);
+
+		if(ss[0] == "i"){
+			for(int i=1;i<ss.size();++i){
+				int v = atoi(ss[i].c_str());
+				data.push_back(v);
+			}
+			deq.push(&data[0], data.size());
+		}else if(ss[0] == "o"){
+			auto d = deq.pop(atoi(ss[1].c_str()));
+			for(auto ite = d->begin();ite != d->end();++ite){
+				printf("pop %d\n", *ite);
+			}
 		}
-		deq.push(&data[0], data.size());
 		int num = deq.get_array(&data_get[0]);
 		stringstream ss_out;
 		for(int i=0;i<num;++i){

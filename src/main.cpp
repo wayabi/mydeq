@@ -31,8 +31,8 @@ void load_test()
 		q1.get_array(&b[0]);
 	}
 	auto c2 = clock();
-	printf("std::dequue = %d millisec\n", c1 - c0);
-	printf("mydeq = %d millisec\n", c2 - c1);
+	printf("std::dequue = %d millisec\n", 1000*(c1 - c0)/CLOCKS_PER_SEC);
+	printf("mydeq = %d millisec\n", 1000*(c2 - c1)/CLOCKS_PER_SEC);
 }
 
 int main(){

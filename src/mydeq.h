@@ -13,6 +13,7 @@ public:
 	int get_array(T* dst);
 	int get_num_data();
 	std::shared_ptr<std::vector<T>> pop(int num);
+	void clear();
 
 private:
 	int size_;
@@ -127,6 +128,12 @@ std::shared_ptr<std::vector<T>> mydeq<T>::pop(int num)
 	}
 	
 	return ret;
+}
+
+template<class T>
+void mydeq<T>::clear()
+{
+	idx_end_ = idx_start_;
 }
 
 #endif

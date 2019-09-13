@@ -59,7 +59,6 @@ void mydeq<T>::push(const T* buf, int num)
 	memcpy(&buf_[idst], buf+0, sizeof(T) * w0);
 	int w1 = num - w0;
 	if(w1 == 0){
-		printf("idxs %d, idxe %d\n", idx_start_, idx_end_);
 		return;
 	}
 	idx_end_ = w1;
@@ -67,7 +66,6 @@ void mydeq<T>::push(const T* buf, int num)
 		idx_start_ = idx_end_ + 1;
 	}
 	memcpy(&buf_[0], buf+w0, sizeof(T) * w1);
-	printf("idxs %d, idxe %d\n", idx_start_, idx_end_);
 }
 
 template<class T>
@@ -128,7 +126,6 @@ std::shared_ptr<std::vector<T>> mydeq<T>::pop(int num)
 		}
 	}
 	
-	printf("idxs %d, idxe %d\n", idx_start_, idx_end_);
 	return ret;
 }
 

@@ -43,10 +43,10 @@ void mydeq<T>::push(const T* buf, int num)
 	int w0 = num;
 	if(idst + num > size_ - 1){
 		w0 = size_ - idst;
-		idx_end_ = 0;
-		if(idx_start_ == 0){
+		if(idx_start_ > idx_end_ || idx_start_ == 0){
 			idx_start_ = 1;
 		}
+		idx_end_ = 0;
 	}else{
 		if(idx_start_ > idx_end_){
 			idx_end_ += w0;
